@@ -1,4 +1,4 @@
-name: Run Jenkins Pipeline
+name: Jenkins Pipeline
 
 on:
   push:
@@ -14,7 +14,8 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run Jenkinsfile Runner
-        uses: jenkinsci/jenkinsfile-runner-github-actions@v0
+        uses: jenkinsci/jfr-container-action@master
         with:
+          command: run
           jenkinsfile: Jenkinsfile
-          plugins: plugins.txt
+          pluginstxt: plugins.txt
